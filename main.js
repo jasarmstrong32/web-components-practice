@@ -61,34 +61,39 @@ class UserCard extends HTMLElement {
 
     this.showInfo = false;
 
-    this.attachShadow({mode: 'open'});
+    this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
     this.shadowRoot.querySelector('h1').innerText = this.getAttribute('name');
     this.shadowRoot.querySelector('img').src = this.getAttribute('avatar');
-    this.shadowRoot.querySelector('p[class="comment"]').innerText = this.getAttribute('comment');
-    this.shadowRoot.querySelector('p[class="phone"]').innerText = this.getAttribute('phone');
-    this.shadowRoot.querySelector('p[class="email"]').innerText = this.getAttribute('email');
+    this.shadowRoot.querySelector('p[class="comment"]').innerText =
+      this.getAttribute('comment');
+    this.shadowRoot.querySelector('p[class="phone"]').innerText =
+      this.getAttribute('phone');
+    this.shadowRoot.querySelector('p[class="email"]').innerText =
+      this.getAttribute('email');
   }
 
   toggleInfo() {
     this.showInfo = !this.showInfo;
 
-    const info= this.shadowRoot.querySelector('.info');
+    const info = this.shadowRoot.querySelector('.info');
     const toggleBtn = this.shadowRoot.querySelector('#toggle-info');
 
-    if(this.showInfo) {
+    if (this.showInfo) {
       info.style.display = 'block';
-      toggleBtn.innerHTML = 'Hide Contact Info'
+      toggleBtn.innerHTML = 'Hide Contact Info';
     } else {
       info.style.display = 'none';
-      toggleBtn.innerHTML = 'Show Contact Info'
+      toggleBtn.innerHTML = 'Show Contact Info';
     }
   }
 
-  connectedCallback(){
-    this.shadowRoot.querySelector('#toggle-info').addEventListener('click', () => this.toggleInfo());
+  connectedCallback() {
+    this.shadowRoot
+      .querySelector('#toggle-info')
+      .addEventListener('click', () => this.toggleInfo());
   }
-  disconnectedCallback(){
+  disconnectedCallback() {
     this.shadowRoot.querySelector('#toggle-info').removeEventListener();
   }
 }
