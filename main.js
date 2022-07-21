@@ -4,7 +4,7 @@ template.innerHTML = `
   .user-card {
     text-align: center;
     background: #e5cf00;
-    width: 400px;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-gap: 10px;

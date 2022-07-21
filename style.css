@@ -11,8 +11,8 @@ body {
 .center {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: .75%;
-  margin: auto;
+  grid-gap: 1rem;
+  margin: 5%;
   padding: 1rem;
   /*  width: 50%; */
 }
